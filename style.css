@@ -1,0 +1,176 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+
+#main ul{
+  list-style: none;
+
+}
+#main ul li{
+  position: relative;
+  background-color: black;
+  width: 150px;
+  border: 2px solid white;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  float:left;
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+}
+#main ul li:hover{
+  background-color: green;
+}
+.logo img{
+  float: left;
+  width: 150px;
+  height: auto;
+}
+#main ul ul {
+  display: none;
+}
+#main ul li:hover  ul{
+  display:block;
+}
+#main li li li{
+  margin-left: 150px;
+  position: absolute;
+   top: 1;  
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+*,*:befor,*:after{
+  box-sizing: border-box;
+}
+body{
+  font-family: poppins;
+  margin: 0;
+  display: grid;
+  font-size: 20px;
+}
+
+main{
+
+  display: -webkit-flex;
+  display: -moz-flex;
+  display:-ms-flex;
+  display: -o-flex;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  color: Red;
+  line-height:36;
+  font-size: -1px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+ 
+footer{
+   display: -webkit-flex;
+  display: -moz-flex;
+  display:-ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-flow:row wrap;
+  padding: 10px;
+  color: #fff;
+ background-color: black;
+
+}
+
+}
+.footer > *{
+  flex: 30%;
+   display: flex;
+}
+.left-area{
+  margin-right:2rem;
+}
+.footer-bootom img{
+  widht:15%;
+}
+h2{
+  font-size:25px;
+  font-weight: uppercase;
+  text-transform: uppercase;
+  color: Darkorange;
+  letter-spacing: 2px;
+}
+.footer ul{
+  list-style: none;
+  padding-left: 0;
+}
+.footer li{
+  line-height: 2rem;
+}
+ 
+.footer a{
+  text-decoration: none;
+}
+.right-area{
+   display: -webkit-flex;
+  display: -moz-flex;
+  display:-ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-flow: row wrap;
+}
+ .right-area >*{
+  flex:150%;
+  margin-right: 1.25rem;
+   
+}
+
+.footer-bootom{
+  text-align: center;
+  color: #999;
+  padding-top: 50px;
+}
+.left-area p{
+  padding-right: 10%;
+  color:#999;
+}
+.socials{
+  margin-top:2.2rem;
+}
+.socials a i{
+  color: red;
+  padding: 10px 12px;
+  font-size: 20px;
+}
+.footer-bootom {
+color:Green;
+}
+
+.btn{
+  border:none;
+  background: darkorange;
+  color:#fff;
+  padding: 10px 30px;
+  height: 36px;
+}
+.search-box input{
+  height: 26px;
+}
+@media screen and (min-widht:600px){
+  .right-area > *{
+    flex: 1;
+  }
+  .left-area{
+    flex: 1 0px;
+  
+}
+.right-area > *{
+    flex: 1;
+  }
+}
+@media screen and (min-widht:600px){
+  .footer{
+    padding: 15px;
+  }
+  .main{
+    font-size: 55px;
+  }
+}
