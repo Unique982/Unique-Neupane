@@ -1,105 +1,558 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<!DOCTYPE HTMl>
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <meta http-equiv="X-UA-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+              <!-- Link section bar -->
+        <link rel="stylesheet" href="shoppingnepal.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://kit.fontawesome.com/a076d05399.js">
+        </script>
+        <!-- Icon link -->
+        <link rel="icon" href="ShoppingNepal.jpg"  type="image/x-icon">
+      
+        
+              <!-- Title Bar -->
+<title> shopping Neplal</title>
 
+    </head>
+    <body>
+           <!-- Navbar-section -->
+<header id="navbar">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+           
+             <img src="ShoppingNepal.jpg" alt="Logo" style="width:63px; display: block;">
+           
+           
+      <a class="navbar-brand" href="#">Shopping-Nepal</a>
+      
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="find" onkeyup="search()">
+        <button type="button" class="btn btn-success" typr="submit" value="searchbox">Search</button>
+      </form>
+
+    <!-- Dark mode button Html and js code inline -->
+     
+              <!-- Menu box -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       Menu
+      </button>
+      <!-- Dark mode button Html and java code inline -->
+     <li class="nav-item">
+     <i onclick="myFunction()"i class="fa fa-adjust" style="font-size:36px"></i>
+    <!-- js code inline -->
+     <script>
+     function myFunction() {
+        var element = document.body;
+      
+        element.classList.toggle("dark-mode");
+     }
+     </script>
+     </li>
+               <!-- Menu bar -->
+               <form method="POST">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <!-- Home -->
+          <li class="nav-item">
+         <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <!-- Product -->
+            <li class="nav-item">
+              <a class="nav-link" href="Product.html">Product</a>
+            </li>
+            <!-- Contact -->
+            <li class="nav-item">
+              <a class="nav-link" href="secondproduct.html">Store</a>
+              
+              </li>
+              <!-- Order -->
+              <li> <a class="nav-item"></a>
+              <a class="nav-link" href="#">Order
+              </a>
+              <li>
+                <!-- Registration pop -->
+              <a class="nav-link" href="Register.html">Registration</a></li>
+              <!-- List -->
+            <li class="nav-item">
+            
+              <a class="nav-link" href="#">List</a>
+            </li>
+            <!-- log-Out -->
+           
+                
+               
+                <li class="nav-item">
+              <a class="nav-link" href="#" name="Logout">Log-Out</a>
+              <a href="home.html"></a>
+              <span class="text-muted"></span>
+              
+            </li>
+          </ul>
+          
+    </div>
+    </div>
+</div>
+  </div>
+  </form>
+</nav>
+<?php
+if(isset($POST['LogOut']))
+{
+    session_destroy();
+    header(" location: Admin.php");
+}
+?>
+</div>
+</header>
 </head>
 <body>
-   <div class="conatiner mt-2 mb-4 p-2 shadow bd-white">
-    <form action="curd.php" method="POST">
-        <div class="form-row justify-content-center">
-            <div class="col-auto">
-                <input type="text" name="username" class="form-control" id="username" placeholder="user name">
-</div>
-<div class="col-auto">
-    <input type="text" name="password" class="form-control" id="password" placeholder="Password">
-</div>
-<div class="col-auto">
-    <button type="submit" name="save" class="btn btn-info">Save</button>
-</div>
-</div>
-</form>
+    
+   
+    <!-- Product point bar -->
 
-   </div>
-   <?php require_once("curd.php"); ?>
-   <div class="container">
-    <?php if(isset($_SESSION['msg'])): ?>
-        <div class="<?=$_SESSION['alert'];?>">
-            <?= $_SESSION['msg']; ?>
-            <?php unset($_SESSION['msg']); unset($_SESSION['alert']); ?>;
-    <?php endif; ?>
+   
+    <section id="Product">
+<!-- shoes Pic only  -->
+        <div class="Product">
         </div>
-  
-    <table class="table">
-    <thead>
-        <tr>
-        <th><h1 align="center" style="margin-top: 10px;">User Data Collection</h1></th>
-
+        <table id="table">
             <tr>
 
-            
-            <th>ID</th>
-            <th>User Name</th>
-            <th>Password</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-       
-        <!-- code to display user data in table -->
-        <?php 
-        $sQuery = "SELECT * FROM list LIMIT 20";
-        $result = $conn->query($sQuery);
-
-        $x =1;
+                <th><h1><a  class="nav-link" href="secondproduct.html">Product-List</h1></a></th>
+               
+            </tr>
+        </table>
+    <br>
+           </div>
+           <tr>
+            <td colspan="5"><h2>Shoes</h2><hr></td>
+            <tr>
+           
+  <div class="products" id="product-list">
+    <div class="product">
+        <div class="image">
+            <img src="9-rockey-9-magnolia-white-original-imaggutpbvcczyhf.webp" alt="">
+        </div>
+        <div class="namePrice">
+            <h3>Shoes</h3>
+            <span>NRS:1500</span>
+        </div>
+        <p></p>
+        <div class="stars">
+            <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+    <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+    <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+    <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+    <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+        </div>
+        <div class="bay">
+            <button> Buy Now </button>
+        </div>
+    </div>
+    <div class="product">
+        <div class="image">
+            <img src="9-rockey-9-magnolia-white-original-imaggutpbvcczyhf.webp" alt="">
+        </div>
+        <div class="namePrice">
+            <h3>Shoes</h3>
+            <span>NRS:1500</span>
+        </div>
+        <p></p>
+        <div class="stars">
+            <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+    <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+    <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+    <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+    <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+        </div>
+        <div class="bay">
+            <button> Buy Now </button>
+        </div>
+    </div>
+    <div class="product">
+        <div class="image">
+            <img src="9-rockey-9-magnolia-white-original-imaggutpbvcczyhf.webp" alt="">
+        </div>
+        <div class="namePrice">
+            <h3>Shoes</h3>
+            <span>NRS:1500</span>
+        </div>
+        <p></p>
+        <div class="stars">
+            <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+    <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+    <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+    <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+    <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+        </div>
+        <div class="bay">
+            <button> Buy Now </button>
+        </div>
+    </div>
+    <div class="product">
+        <div class="image">
+            <img src="9-rockey-9-magnolia-white-original-imaggutpbvcczyhf.webp" alt="">
+        </div>
+        <div class="namePrice">
+            <h3>Shoes</h3>
+            <span>NRS:1500</span>
+        </div>
+        <p></p>
+        <div class="stars">
+            <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+    <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+    <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+    <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+    <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+        </div>
+        <div class="bay">
+            <button> Buy Now </button>
+        </div>
+      </div>
+      
         
-        // button for edit and delete button
-        while ($row = $result->fetch_assoc()): 
-        ?>
-        <tr>
-        <td><?=$row['id'];?></td>
-            <td><?= $row['username']; ?></td>
-            <td><?= $row['password']; ?></td>
-            <td>
-          
-            <button type="submit" name="delete" class="btn btn-danger" value="<?=$row['id'];?>">Delete</button>
-
-
-
-
-            <button type="button" name="edit" value="<?= $x; $x++;?>" class="btn btn-primary">Edit</button>
-       
-                
-            </td>
-        </tr>
-        <?php endwhile; ?>
-       
-    </tbody>
-</table>
+      <div class="product">
+        
+          <div class="image">
+              <img src="pexels-fernando-arcos-190819.jpg" alt="">
+          </div>
+          <div class="namePrice">
+              <h3>watch</h3>
+              <span>NRs:2500</span>
+          </div>
+          <p></p>
+          <div class="stars">
+              <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+              <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+              <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+              <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+              <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+          </div><div class="bay">
+              <button> Buy Now </button>
+  </div>
 </div>
-<!-- js -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-     <script type="text/javascript">
-    $(document).ready(function() {
-        setTimeout(function() {
-            $(".alert").remove();
-        }, 3000);
+<!-- Watch Part only here -->
 
-        $(".btn-primary").click(function(){
-          $(".table").find('tr').eq(this.value).each(function(){
-            $("#username").val($(this).find('td').eq(1).text());
-            $("#password").val($(this).find('td').eq(2).text());
-            $(".btn-info").val($(this).find('td').eq(1).text());
-            
-            
-        });
-        $(".btn-info").attr("name", "edit");
-        });
-    });
-    </script>
-</body>
-</html>
+<div class="product">
+  <div class="image">
+      <img src="pexels-fernando-arcos-190819.jpg" alt="">
+  </div>
+  <div class="namePrice">
+      <h3>watch</h3>
+      <span>NRs:2500</span>
+  </div>
+  <p></p>
+  <div class="stars">
+      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+  </div><div class="bay">
+      <button> Buy Now </button>
+  </div>
+  </div>
+      <div class="product">
+          <div class="image">
+              <img src="pexels-fernando-arcos-190819.jpg" alt="">
+          </div>
+          <div class="namePrice">
+              <h3>watch</h3>
+              <span>NRs:2500</span>
+          </div>
+          <p></p>
+          <div class="stars">
+              <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+              <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+              <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+              <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+              <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+          </div><div class="bay">
+              <button> BUy Now </button>
+              </div>
+              </div><div class="product">
+                  <div class="image">
+                      <img src="pexels-fernando-arcos-190819.jpg" alt="">
+                  </div>
+                  <div class="namePrice">
+                      <h3>watch</h3>
+                      <span>NRs:2500</span>
+                  </div>
+                  <p></p>
+                  <div class="stars">
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                  </div><div class="bay">
+                      <button> Buy Now </button>
+                      </div>
+                      </div>
+                    
+                      <!-- Shoes part only here -->
+                      <div class="product">
+                          <div class="image">
+                              <img src="9-rockey-9-magnolia-white-original-imaggutpbvcczyhf.webp" alt="">
+                          </div>
+                          <div class="namePrice">
+                              <h3>Shoes</h3>
+                              <span>NRS:1500</span>
+                          </div>
+                          <p></p>
+                          <div class="stars">
+                              <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                          </div>
+                          <div class="bay">
+                              <button> Buy Now </button>
+                          </div>
+                      </div>
+                      <div class="product">
+                          <div class="image">
+                              <img src="9-rockey-9-magnolia-white-original-imaggutpbvcczyhf.webp" alt="">
+                          </div>
+                          <div class="namePrice">
+                              <h3>Shoes</h3>
+                              <span>NRS:1500</span>
+                          </div>
+                          <p></p>
+                          <div class="stars">
+                              <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                          </div>
+                          <div class="bay">
+                              <button> Buy Now </button>
+                          </div>
+                      </div>
+                      <div class="product">
+                          <div class="image">
+                              <img src="9-rockey-9-magnolia-white-original-imaggutpbvcczyhf.webp" alt="">
+                          </div>
+                          <div class="namePrice">
+                              <h3>Shoes</h3>
+                              <span>NRS:1500</span>
+                          </div>
+                          <p></p>
+                          <div class="stars">
+                              <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                          </div>
+                          <div class="bay">
+                              <button> Buy Now </button>
+                          </div>
+                      </div>
+                      <div class="product">
+                          <div class="image">
+                              <img src="9-rockey-9-magnolia-white-original-imaggutpbvcczyhf.webp" alt="">
+                          </div>
+                          <div class="namePrice">
+                              <h3>Shoes</h3>
+                              <span>NRS:1500</span>
+                          </div>
+                          <p></p>
+                          <div class="stars">
+                              <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                          </div>
+                          <div class="bay">
+                              <button> Buy Now </button>
+                          </div>
+                      </div>
+                      <!-- Laptop part only here -->
+                      <div class="product">
+                          <div class="image">
+                              <img src="dell-inspiron-3500-price-nepal-cheap-i7-laptop.jpeg" alt="">
+                          </div>
+                          <div class="namePrice">
+                              <h3>laptop</h3>
+                              <span>NRs:120000</span>
+                          </div>
+                          <p></p>
+                          <div class="stars">
+                              <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                          </div>
+                          <div class="bay">
+                              <button> Buy Now </button>
+                          </div>
+                      </div>
+                      <div class="product">
+                          <div class="image">
+                              <img src="dell-inspiron-3500-price-nepal-cheap-i7-laptop.jpeg" alt="">
+                          </div>
+                          <div class="namePrice">
+                              <h3>laptop</h3>
+                              <span>NRs:120000</span>
+                          </div>
+                          <p></p>
+                          <div class="stars">
+                              <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                          </div>
+                          <div class="bay">
+                              <button> Buy Now </button>
+                          </div>
+                      </div>
+                      <div class="product">
+                          <div class="image">
+                              <img src="dell-inspiron-3500-price-nepal-cheap-i7-laptop.jpeg" alt="">
+                          </div>
+                          <div class="namePrice">
+                              <h3>laptop</h3>
+                              <span>NRs:120000</span>
+                          </div>
+                          <p></p>
+                          <div class="stars">
+                              <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                          </div>
+                          <div class="bay">
+                              <button> Buy Now </button>
+                          </div>
+                      </div>
+                      <div class="product">
+                          <div class="image">
+                              <img src="dell-inspiron-3500-price-nepal-cheap-i7-laptop.jpeg" alt="">
+                          </div>
+                          <div class="namePrice">
+                              <h3>laptop</h3>
+                              <span>NRs:120000</span>
+                          </div>
+                          <p></p>
+                          <div class="stars">
+                              <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                      <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                          </div>
+                          <div class="bay">
+                              <button> Buy Now </button>
+                          </div>
+                      </div>
+                      <div class="product">
+                          <div class="image">
+                              <img src="nokia-110-charcoal-front-int.png" alt="">
+                          </div>
+                          <div class="namePrice">
+                              <h3>Moblie</h3>
+                              <span>NRs:1500</span>
+                          </div>
+                          <p></p>
+                          <div class="stars">
+                              <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                              <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                              <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                              <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                              <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                          </div>
+                          <div class="bay">
+                              <button> Buy Now </button>
+                          </div>
+                      </div>
+                      <div class="product">
+                          <div class="image">
+                              <img src="nokia-110-charcoal-front-int.png" alt="">
+                          </div>
+                          <div class="namePrice">
+                              <h3>Moblie</h3>
+                              <span>NRs:1500</span>
+                          </div>
+                          <p></p>
+                          <div class="stars">
+                              <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                              <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                              <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                              <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                              <i class="fa fa-star"  style="font-size:25px;color:yellow"></i>
+                          </div>
+                          <div class="bay">
+                              <button> Buy Now </button>
+                          </div>
+                      </div>
+                    </section>
+
+
+
+                    <section id="Our-Team">
+                        <div id="Our-Team">
+                            </div>
+                            <div id="OurTeam">
+                                <br>
+                                
+                              <h2 id="pra">Our-Team</h2>
+
+                            </div>
+                        </div>
+                        <div class="Our-Team">
+                            <div class="box">
+                                </div>
+                                <br>
+                                <div class="products" id="product-list">
+                                    <div class="product">
+                                        <div class="image">
+                                            <img src="ShoppingNepal.jpg" alt="">
+                                           
+                                        </div>
+                                <h4>Shopping Nepal</h4>
+                        
+                    </section>
+                    <section class="footer">
+                        <footer>
+                            <div class="footer">
+                                <h1>Address </h1>
+                                <li>Emai:</li>
+                            <li>phone:-xxxxx</li>
+                            <li></li>
+
+                            </div>
+                        </footer>
+                    </section>
+                            
+                    <script type="text/javascript">
+                        function search() {
+    let filter = document.getElementById('find').value.toUppercase();
+    let item = document.querySelectorAll('.product');
+    Let 1 =document.getElementByIdTagName('h3');
+    
+    for(var i = 0;i<=l.length;i++){
+        Let a=items[i].getElementByIdTagName('h3')[0];
+        Let value=a.innerHTML || a.innerTxet || a.textContent;
+
+
+        if(value.toUppercase().indexOf(filter) >-1){
+            item[i].style.display="";
+        }
+        else{
+            item[i].style.display="none";
+        }
+    }
+}     
+  </body></html>
